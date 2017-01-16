@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BlackJack
 {
-    class Deck
+    class Deck : IDeck
     {
         private List<Card> deck;
         private int sizeDeck;
@@ -18,10 +18,10 @@ namespace BlackJack
             }
             this.sizeDeck = sizeDeck;
             deck = new List<Card>(sizeDeck);
-            Init();
+            InitDeck();
         }
 
-        private void Init()
+        public void InitDeck()
         {
             int rank = 0;
             for (int i = 0; i < sizeDeck; i++)
@@ -35,7 +35,7 @@ namespace BlackJack
             }
         }
 
-        public Card GetOneCard()
+        public Card GetRandomCard()
         {
             Card result;
             int indexOfCart = random.Next(0, deck.Count);

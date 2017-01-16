@@ -12,7 +12,7 @@ namespace BlackJack
 
         public void AddCard(Deck deck)
         {
-            cardsInHand.Add(deck.GetOneCard());
+            cardsInHand.Add(deck.GetRandomCard());
         }
 
         public void ShowCards()
