@@ -10,7 +10,7 @@ namespace BlackJack
     {
         private GameBoard _gameBoard;
         private PlayerLogic _player;
-        private PlayerLogic _ai;
+        private PlayerLogic _diller;
         private DeckController _deck;
         private bool _gameContinued = true;
 
@@ -18,7 +18,7 @@ namespace BlackJack
         {
             _gameBoard = gameBoard;
             _player = new PlayerLogic(gameBoard.player, "Player");
-            _ai = new PlayerLogic(gameBoard.ai, "Diller");
+            _diller = new PlayerLogic(gameBoard.diller, "Diller");
             _deck = new DeckController(gameBoard.deck);
         }
 
@@ -34,24 +34,24 @@ namespace BlackJack
         {
             _deck = new DeckController(_gameBoard.deck);
             _player.AddCard(_deck);
-            _ai.AddCard(_deck);
+            _diller.AddCard(_deck);
             _player.player.turnContinued = true;
-            _ai.player.turnContinued = true;
-            while (_player.player.turnContinued && !CheckBust(_player, _ai))
+            _diller.player.turnContinued = true;
+            while (_player.player.turnContinued && !CheckBust(_player, _diller))
             {
-               ConsoleView.ShowTable(_player, _ai);
-                _player.Logic(_deck, _ai);
-                CheckBust(_player, _ai);
-                ConsoleView.ShowTable(_player, _ai);
+               ConsoleView.ShowTable(_player, _diller);
+                _player.Logic(_deck, _diller);
+                CheckBust(_player, _diller);
+                ConsoleView.ShowTable(_player, _diller);
             }
-            while (_ai.player.turnContinued && !CheckBust(_player, _ai))
+            while (_diller.player.turnContinued && !CheckBust(_player, _diller))
             {
-                _ai.Logic(_deck, _player);
-                ConsoleView.ShowTable(_player, _ai);
+                _diller.Logic(_deck, _player);
+                ConsoleView.ShowTable(_player, _diller);
                 Thread.Sleep(1000);
-                CheckBust(_ai, _player);
+                CheckBust(_diller, _player);
             }
-            CheckResult(_player, _ai);
+            CheckResult(_player, _diller);
             RestartGame();
         }
 
@@ -62,7 +62,7 @@ namespace BlackJack
             if (input == "y")
             {
                 _player.CardsClear();
-                _ai.CardsClear();
+                _diller.CardsClear();
                 Console.Clear();
             }
             else
