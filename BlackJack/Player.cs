@@ -9,5 +9,7 @@ namespace BlackJack
     class Player
     {
         public List<Card> cardsInHand = new List<Card>();
+        public string name;
+        public bool turnContinued = true;
     }
 }

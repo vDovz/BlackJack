@@ -43,18 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameBoardView.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="AbstractPlayerController.cs" />
-    <Compile Include="AIController.cs" />
+    <Compile Include="PlayerLogic.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="DeckController.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="GameBoard.cs" />
-    <Compile Include="GameBoardController.cs" />
-    <Compile Include="PlayerController.cs" />
-    <Compile Include="PlayerView.cs" />
+    <Compile Include="GameBoardLogic.cs" />
+    <Compile Include="ConsoleView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
