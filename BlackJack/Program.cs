@@ -11,7 +11,7 @@ namespace BlackJack
     {
         static void Main(string[] args)
         {
-            GameBoardLogic board = new GameBoardLogic(new GameBoard());
+            GameBoard board = new GameBoard();
             board.StartGame();
         }
     }

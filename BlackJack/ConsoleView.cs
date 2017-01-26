@@ -4,9 +4,9 @@ namespace BlackJack
 {
     static class ConsoleView
     {
-        public static void ShowCards(this PlayerLogic player)
+        public static void ShowCards(this Player player)
         {
-            foreach (var item in player.player.cardsInHand)
+            foreach (var item in player.cardsInHand)
             {
                 Console.WriteLine("{0} {1} {2}", item.rank, item.suit, item.point);
             }
@@ -22,7 +22,7 @@ namespace BlackJack
             Console.WriteLine("Win {0}", name);
         }
 
-        public static void ShowTable(PlayerLogic player, PlayerLogic diller)
+        public static void ShowTable(Player player, Player diller)
         {
             Console.Clear();
             diller.ShowCards();
@@ -43,6 +43,5 @@ namespace BlackJack
             Console.WriteLine("1. Add card");
             Console.WriteLine("2. Enough Card");
         }
-
     }
 }
