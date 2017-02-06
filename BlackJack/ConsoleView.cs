@@ -8,13 +8,13 @@ namespace BlackJack
         {
             foreach (var item in player.cardsInHand)
             {
-                Console.WriteLine("{0} {1} {2}", item.rank, item.suit, item.point);
+                Console.WriteLine("{0} {1} {2}", item.Rank, item.Suit, item.Point);
             }
         }
 
-        public static void ShowWin(string name)
+        public static void ShowWin(TypePlayer name)
         {
-            if (name == "")
+            if (name == TypePlayer.Unknown)
             {
                 Console.WriteLine("Dead Heat");
                 return;

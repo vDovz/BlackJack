@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace BlackJack
 {
-    public enum Rank { Ace , Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King };
+    public enum TypePlayer { Player , Diller, Unknown};
 }

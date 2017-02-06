@@ -6,8 +6,8 @@ namespace BlackJack
 {
     class GameBoard
     {
-        private Player _player = new Player("Player");
-        private Player _diller = new Player("Diller");
+        private Player _player = new Player(TypePlayer.Player);
+        private Player _diller = new Player(TypePlayer.Diller);
         private Deck _deck = new Deck();
         private bool _gameContinued = true;
 
@@ -92,7 +92,7 @@ namespace BlackJack
             }
             if (player.GetPoint() == enemy.GetPoint())
             {
-                ConsoleView.ShowWin("");
+                ConsoleView.ShowWin(TypePlayer.Unknown);
                 return;
             }
         }

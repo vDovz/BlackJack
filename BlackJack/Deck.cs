@@ -19,11 +19,22 @@ namespace BlackJack
 
         private void InitDeck()
         {
-            for (int i = 0; i < _countSuit; i++)
+            int point = 0;
+            for (int suit = 0; suit < _countSuit; suit++)
             {
-                for (int j = 1; j < _countRank + 1; j++)
+                for (int rank = 0; rank < _countRank; rank++)
                 {
-                    _deck.Add(new Card(j, i, j));
+                    point = rank + 1;
+                    if(point > 10)
+                    {
+                        point = 10;
+                    }
+                    _deck.Add(new Card()
+                    {
+                        Rank = (Rank)Enum.Parse(typeof(Rank), rank.ToString()),
+                        Suit = (Suit)Enum.Parse(typeof(Suit), suit.ToString()),
+                        Point = point,
+                    });
                 }
             }
         }

@@ -8,20 +8,9 @@ namespace BlackJack
 {
     public class Card
     {
-        public Rank rank { get; set; }
-        public Suit suit { get; set; }
-        public int point { get; set; }
-
-        public Card(int rank, int suit, int point)
-        {
-            this.rank =(Rank) Enum.Parse(typeof(Rank),rank.ToString());
-            this.suit = (Suit)Enum.Parse(typeof(Suit), suit.ToString()); 
-            if(point > 10)
-            {
-                point = 10;
-            }
-            this.point = point;
-        }
+        public Rank Rank { get; set; }
+        public Suit Suit { get; set; }
+        public int Point { get; set; }
     }
     
 }

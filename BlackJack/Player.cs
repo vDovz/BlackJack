@@ -9,10 +9,10 @@ namespace BlackJack
     class Player
     {
         public List<Card> cardsInHand = new List<Card>();
-        public string name;
+        public TypePlayer name;
         public bool turnContinued = true;
 
-        public Player(string name)
+        public Player(TypePlayer name)
         {
             this.name = name;
         }
@@ -27,14 +27,14 @@ namespace BlackJack
             int result = 0;
             foreach (var item in cardsInHand)
             {
-                result += item.point;
+                result += item.Point;
             }
             return result;
         }
 
         public void Logic(Deck deck, Player enemy)
         {
-            if (name == "Player")
+            if (name == TypePlayer.Player)
             {
                 ConsoleView.ShowPlayerAction();
                 int userInput = int.Parse(Console.ReadLine());
@@ -50,7 +50,7 @@ namespace BlackJack
                         break;
                 }
             }
-            if (name == "Diller")
+            if (name == TypePlayer.Diller)
             {
                 if (GetPoint() < 17 && GetPoint() <= enemy.GetPoint())
                 {
