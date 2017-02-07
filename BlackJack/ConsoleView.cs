@@ -2,7 +2,7 @@
 
 namespace BlackJack
 {
-    static class ConsoleView
+   public static class ConsoleView
     {
         public static void ShowCards(this Player player)
         {
@@ -43,5 +43,10 @@ namespace BlackJack
             Console.WriteLine("1. Add card");
             Console.WriteLine("2. Enough Card");
         }
+
+        public static string UserInput()
+        {
+            return Console.ReadLine();
+        } 
     }
 }

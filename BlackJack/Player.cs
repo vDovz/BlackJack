@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace BlackJack
 {
-    class Player
+   public class Player
     {
         public List<Card> cardsInHand = new List<Card>();
         public TypePlayer name;
         public bool turnContinued = true;
+        private int _enoughtPoint = 17; 
 
         public Player(TypePlayer name)
         {
@@ -37,7 +38,7 @@ namespace BlackJack
             if (name == TypePlayer.Player)
             {
                 ConsoleView.ShowPlayerAction();
-                int userInput = int.Parse(Console.ReadLine());
+                int userInput = int.Parse(ConsoleView.UserInput());
                 switch (userInput)
                 {
                     case 1:
@@ -52,7 +53,7 @@ namespace BlackJack
             }
             if (name == TypePlayer.Diller)
             {
-                if (GetPoint() < 17 && GetPoint() <= enemy.GetPoint())
+                if (GetPoint() < _enoughtPoint && GetPoint() <= enemy.GetPoint())
                 {
                     AddCard(deck);
                     return;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BlackJack
 {
-    class Deck
+    public class Deck
     {
         private Random _rand = new Random();
         private int _countSuit = Enum.GetValues(typeof(Suit)).Length;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlackJack
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {

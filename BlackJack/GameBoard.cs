@@ -4,12 +4,13 @@ using System.Threading;
 
 namespace BlackJack
 {
-    class GameBoard
+    public class GameBoard
     {
         private Player _player = new Player(TypePlayer.Player);
         private Player _diller = new Player(TypePlayer.Diller);
         private Deck _deck = new Deck();
         private bool _gameContinued = true;
+        private int _maxPoint = 21;
 
         public GameBoard()
         {
@@ -52,7 +53,7 @@ namespace BlackJack
         private void RestartGame()
         {
             ConsoleView.ShowGameRestart();
-            string input = Console.ReadLine();
+            string input = ConsoleView.UserInput();
             if (input == "y")
             {
                 _player.CardsClear();
@@ -67,11 +68,11 @@ namespace BlackJack
 
         private bool CheckBust(Player player, Player enemy)
         {
-            if (player.GetPoint() > 21)
+            if (player.GetPoint() > _maxPoint)
             {
                 return true;
             }
-            if (enemy.GetPoint() > 21)
+            if (enemy.GetPoint() > _maxPoint)
             {
                 return true;
             }
@@ -80,12 +81,12 @@ namespace BlackJack
 
         private void CheckResult(Player player, Player enemy)
         {
-            if ((player.GetPoint() < enemy.GetPoint() || player.GetPoint() > 21) && enemy.GetPoint() <= 21)
+            if ((player.GetPoint() < enemy.GetPoint() || player.GetPoint() > _maxPoint) && enemy.GetPoint() <= _maxPoint)
             {
                 ConsoleView.ShowWin(enemy.name);
                 return;
             }
-            if (player.GetPoint() > enemy.GetPoint() || enemy.GetPoint() > 21)
+            if (player.GetPoint() > enemy.GetPoint() || enemy.GetPoint() > _maxPoint)
             {
                 ConsoleView.ShowWin(player.name);
                 return;
